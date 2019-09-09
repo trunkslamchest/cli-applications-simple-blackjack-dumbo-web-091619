@@ -40,6 +40,7 @@ def invalid_command
 end
 
 def hit?(n)
+  
   prompt_user
   u_input = get_user_input
     if u_input == 'h'
@@ -54,15 +55,18 @@ def hit?(n)
 end
 
 def runner
-  
   total = initial_round
-welcome
+  
+  welcome
+  
   until total > 21
       total = hit?(total)
 
     display_card_total(total)
+    
     if total > 21
       end_game(total)
     end
+    
   end
 end
