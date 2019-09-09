@@ -40,9 +40,10 @@ def invalid_command
 end
 
 def hit?(n)
+  u_input = get_user_input
   
   prompt_user
-  u_input = get_user_input
+
     if u_input == 'h'
      n += deal_card
      return n
