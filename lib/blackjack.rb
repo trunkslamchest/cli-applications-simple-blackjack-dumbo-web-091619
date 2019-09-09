@@ -2,6 +2,8 @@ def welcome
   puts "Welcome to the Blackjack Table"
 end
 
+welcome
+
 def deal_card
   return rand(1..11)
 end
@@ -39,33 +41,35 @@ end
 
 def hit?(n)
   u_input = get_user_input
-  
+
   prompt_user
 
-    if u_input == 'h'
-     n += deal_card
-     return n
-    elsif u_input == 's'
-      return n
-    else
-      invalid_command
-      hit?(n)
-    end
+  if u_input == 'h'
+    n += deal_card
+    return n
+  elsif u_input == 's'
+    return n
+  else
+    invalid_command
+    hit?(n)
+  end
+
 end
 
 def runner
   total = initial_round
-  
+
   welcome
-  
+
   until total > 21
     total = hit?(total)
 
     display_card_total(total)
-    
+
     if total > 21
       end_game(total)
     end
-    
+
   end
+
 end
